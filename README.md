@@ -87,7 +87,7 @@ Get your free Neo4j AuraDB credentials at: `https://neo4j.com/cloud/aura`
 
 **Run on a single article:**
 ```bash
-python main.py data/raw/article_1.txt
+python main.py data/raw/article_5.txt
 ```
 
 **Run on all articles:**
@@ -119,11 +119,11 @@ Visualize the generated KG in Neo4j AuraDB.
 - Sign up and click **"Create a free instance"**
 - Copy the credentials shown — URI, username, password 
 
-**2. Add Neo4j credentials to `.env`:**
+**2. Add Neo4j credentials to `.env`**
 
 **3. Load a KG into Neo4j:**
 ```bash
-python tools/load_neo4j.py data/output/article_1.json
+python tools/load_neo4j.py data/output/article_5.json
 
 ```
 
