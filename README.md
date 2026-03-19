@@ -97,9 +97,9 @@ python main.py
 
 Output KG JSON files are saved to `data/output/`.
 
-## Simple Global Config (config.py)
+## Global Config (config.py)
 
-All major settings are now centralized in `config.py` using simple Python assignments:
+All major settings are centralized in `config.py`:
 
 ```python
 LLM_DEFAULT_MODEL = "llama-3.3-70b-versatile"
