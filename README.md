@@ -105,7 +105,7 @@ Visualize the generated KG in Neo4j AuraDB.
 - Sign up and click **"Create a free instance"**
 - Copy the credentials shown — URI, username, password 
 
-**2. Add Neo4j credentials to `.env`:**
+**2. Add Neo4j credentials to `.env`**
 
 **3. Load a KG into Neo4j:**
 ```bash
