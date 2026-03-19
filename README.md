@@ -96,3 +96,27 @@ python main.py
 ```
 
 Output KG JSON files are saved to `data/output/`.
+## Neo4j Visualization (Optional)
+
+Visualize the generated KG in Neo4j AuraDB.
+
+**1. Create a free Neo4j AuraDB instance:**
+- Go to `https://neo4j.com/cloud/aura`
+- Sign up and click **"Create a free instance"**
+- Copy the credentials shown — URI, username, password 
+
+**2. Add Neo4j credentials to `.env`:**
+
+**3. Load a KG into Neo4j:**
+```bash
+python tools/load_neo4j.py data/output/article_1.json
+
+```
+
+**4. Visualize:**
+- Go to your AuraDB instance
+- Click **"Open"** → Neo4j Browser opens
+- Run this query to peek the graph:
+```cypher
+MATCH (n)-[r]->(m) RETURN n, r, m LIMIT 100
+```
