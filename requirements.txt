@@ -1,0 +1,17 @@
+python-dotenv
+numpy
+
+# LLM APIs
+google-genai
+groq
+
+# Embeddings
+sentence-transformers
+einops
+
+
+# Data
+datasets
+
+# Neo4j
+neo4j
