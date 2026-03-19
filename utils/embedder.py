@@ -1,14 +1,15 @@
 import logging
 import numpy as np
 from sentence_transformers import SentenceTransformer
+import config
 
 logger = logging.getLogger(__name__)
 
 # _model = SentenceTransformer("all-MiniLM-L6-v2")
 # utils/embedder.py
 _model = SentenceTransformer(
-    "nomic-ai/nomic-embed-text-v1.5",
-    trust_remote_code=True
+    config.EMBEDDING_MODEL,
+    trust_remote_code=config.EMBEDDING_TRUST_REMOTE_CODE
 )
 
 def embed(texts: list[str]) -> np.ndarray:
@@ -19,7 +20,7 @@ def embed(texts: list[str]) -> np.ndarray:
         texts,
         convert_to_numpy=True,
         show_progress_bar=False,
-        normalize_embeddings=True
+        normalize_embeddings=config.EMBEDDING_NORMALIZE
     )
 
 

@@ -96,6 +96,20 @@ python main.py
 ```
 
 Output KG JSON files are saved to `data/output/`.
+
+## Simple Global Config (config.py)
+
+All major settings are now centralized in `config.py` using simple Python assignments:
+
+```python
+LLM_DEFAULT_MODEL = "llama-3.3-70b-versatile"
+EMBEDDING_MODEL = "nomic-ai/nomic-embed-text-v1.5"
+RELATION_DEFINITION_BATCH_SIZE = 10
+...
+```
+
+To change models or batch settings, edit only `config.py`.
+
 ## Neo4j Visualization (Optional)
 
 Visualize the generated KG in Neo4j AuraDB.

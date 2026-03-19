@@ -4,6 +4,7 @@ import time
 import logging
 from dotenv import load_dotenv
 from groq import Groq
+import config
 
 load_dotenv()
 
@@ -14,30 +15,33 @@ logger  = logging.getLogger(__name__)
 def llm_call(
     system_prompt: str,
     user_prompt: str,
-    model: str = "llama-3.3-70b-versatile",
+    model: str = None,
 ) -> str:
     """
     Single LLM call. Retries up to 3 times on failure.
 
-    model: "llama-3.3-70b-versatile"  → default, best quality
-           "llama-3.1-8b-instant"     → quick tests only
+    model: defaults to config.LLM_DEFAULT_MODEL
     """
-    for attempt in range(3):
+    selected_model = model or config.LLM_DEFAULT_MODEL
+
+    for attempt in range(config.LLM_MAX_RETRIES):
         try:
             response = _client.chat.completions.create(
-                model=model,
+                model=selected_model,
                 messages=[
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": user_prompt}
                 ],
-                temperature=0.0
+                temperature=config.LLM_TEMPERATURE
             )
             return response.choices[0].message.content
 
         except Exception as e:
-            logger.warning(f"LLM call failed (attempt {attempt+1}/3): {e}")
-            if attempt < 2:
-                time.sleep(5)
+            logger.warning(
+                f"LLM call failed (attempt {attempt + 1}/{config.LLM_MAX_RETRIES}): {e}"
+            )
+            if attempt < config.LLM_MAX_RETRIES - 1:
+                time.sleep(config.LLM_RETRY_DELAY_SECONDS)
             else:
                 raise
 

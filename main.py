@@ -2,6 +2,7 @@
 import os
 import json
 import logging
+import config
 from pipeline.chunker import chunk_article
 from pipeline.extractor import extract_all_triples
 from pipeline.deduplicator import deduplicate_triples
@@ -18,7 +19,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-def run_pipeline(article_path: str, output_dir: str = "data/output") -> dict:
+def run_pipeline(article_path: str, output_dir: str = config.DATA_OUTPUT_DIR) -> dict:
     """
     Run full KG construction pipeline on a single article.
 
@@ -108,7 +109,7 @@ def run_pipeline(article_path: str, output_dir: str = "data/output") -> dict:
     return kg
 
 
-def run_all(data_dir: str = "data/raw", output_dir: str = "data/output"):
+def run_all(data_dir: str = config.DATA_RAW_DIR, output_dir: str = config.DATA_OUTPUT_DIR):
     """
     Run pipeline on all articles in data_dir.
     """

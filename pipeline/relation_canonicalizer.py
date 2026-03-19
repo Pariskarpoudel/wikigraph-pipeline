@@ -1,6 +1,7 @@
 # pipeline/relation_canonicalizer.py
 import logging
 from typing import List, Dict, Tuple
+import config
 
 from utils.embedder import embed, cosine_similarity
 from utils.llm import llm_call
@@ -9,9 +10,9 @@ from prompts.relation_canon import SYSTEM_PROMPT, build_user_prompt
 
 logger = logging.getLogger(__name__)
 
-SIMILARITY_THRESHOLD = 0.7
-TOP_K_CANDIDATES     = 5
-SINGLETON_BATCH_SIZE = 10
+SIMILARITY_THRESHOLD = config.RELATION_SIMILARITY_THRESHOLD
+TOP_K_CANDIDATES     = config.RELATION_TOP_K_CANDIDATES
+SINGLETON_BATCH_SIZE = config.RELATION_SINGLETON_BATCH_SIZE
 
 
 def _get_example_triple(relation: str, triples: List[Dict]) -> Dict:
@@ -69,7 +70,7 @@ Output format:
         raw = llm_call(
             system_prompt="You are a knowledge graph relation normalizer. Output JSON only. No explanation outside JSON.",
             user_prompt=user_prompt,
-            model="llama-3.3-70b-versatile"
+            model=config.RELATION_SINGLETON_NORMALIZATION_MODEL
         )
 
         result = parse_llm_json(raw, expected_type="dict")
@@ -169,7 +170,7 @@ def canonicalize_relations(
         raw = llm_call(
             system_prompt=SYSTEM_PROMPT,
             user_prompt=user_prompt,
-            model="llama-3.3-70b-versatile"
+            model=config.RELATION_CANONICALIZATION_MODEL
         )
 
         result = parse_llm_json(raw, expected_type="dict")

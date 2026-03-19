@@ -1,6 +1,7 @@
 # pipeline/schema_inducer.py
 import logging
 from typing import List, Dict, Tuple
+import config
 
 from utils.llm import llm_call
 from utils.parser import parse_llm_json
@@ -9,7 +10,7 @@ from prompts.relation_concept import SYSTEM_PROMPT as RELATION_SYSTEM, build_use
 
 logger = logging.getLogger(__name__)
 
-BATCH_SIZE = 8   # as per pipeline doc
+BATCH_SIZE = config.SCHEMA_BATCH_SIZE
 
 
 def _get_entity_context(entity: str, triples: List[Dict]) -> List[Dict]:
@@ -17,7 +18,7 @@ def _get_entity_context(entity: str, triples: List[Dict]) -> List[Dict]:
     return [
         t for t in triples
         if t["subject"] == entity or t["object"] == entity
-    ][:3]
+    ][:config.ENTITY_MAX_CONTEXT_TRIPLES]
 
 
 def _get_relation_example(relation: str, triples: List[Dict]) -> Dict:
@@ -80,7 +81,7 @@ def conceptualize_entities(
         raw = llm_call(
             system_prompt=ENTITY_SYSTEM,
             user_prompt=user_prompt,
-            model="llama-3.3-70b-versatile"
+            model=config.ENTITY_CONCEPT_MODEL
         )
 
         result = parse_llm_json(raw, expected_type="dict")
@@ -142,7 +143,7 @@ def conceptualize_relations(
         raw = llm_call(
             system_prompt=RELATION_SYSTEM,
             user_prompt=user_prompt,
-            model="llama-3.3-70b-versatile"
+            model=config.RELATION_CONCEPT_MODEL
         )
 
         result = parse_llm_json(raw, expected_type="dict")

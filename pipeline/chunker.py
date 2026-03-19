@@ -2,12 +2,13 @@
 import re
 import logging
 from typing import List, Dict
+import config
 
 logger = logging.getLogger(__name__)
 
-TARGET_TOKENS = 400
-MAX_TOKENS    = 550
-MIN_TOKENS    = 150
+TARGET_TOKENS = config.CHUNK_TARGET_TOKENS
+MAX_TOKENS    = config.CHUNK_MAX_TOKENS
+MIN_TOKENS    = config.CHUNK_MIN_TOKENS
 
 
 def _token_count(text: str) -> int:

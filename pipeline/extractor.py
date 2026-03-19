@@ -1,6 +1,7 @@
 # pipeline/extractor.py
 import logging
 from typing import List, Dict
+import config
 from utils.llm import llm_call
 from utils.parser import parse_llm_json
 from prompts.oie import SYSTEM_PROMPT, build_user_prompt
@@ -39,7 +40,7 @@ def extract_triples_from_chunk(chunk: Dict) -> List[Dict]:
     raw = llm_call(
         system_prompt=SYSTEM_PROMPT,
         user_prompt=user_prompt,
-        # model="gemini-1.5-flash"
+        model=config.EXTRACTOR_MODEL,
     )
 
     data = parse_llm_json(raw, expected_type="list")

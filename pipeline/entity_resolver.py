@@ -1,5 +1,6 @@
 import logging
 from typing import List, Dict, Tuple
+import config
 
 from utils.embedder import embed, cosine_similarity
 from utils.llm import llm_call
@@ -8,9 +9,9 @@ from prompts.entity_resolution import SYSTEM_PROMPT, build_user_prompt
 
 logger = logging.getLogger(__name__)
 
-SIMILARITY_THRESHOLD = 0.7
-TOP_K_CANDIDATES     = 5
-MAX_CONTEXT_TRIPLES  = 3
+SIMILARITY_THRESHOLD = config.ENTITY_SIMILARITY_THRESHOLD
+TOP_K_CANDIDATES     = config.ENTITY_TOP_K_CANDIDATES
+MAX_CONTEXT_TRIPLES  = config.ENTITY_MAX_CONTEXT_TRIPLES
 
 
 def _get_context_triples(entity: str, triples: List[Dict]) -> List[Dict]:
@@ -109,7 +110,7 @@ def resolve_entities(
         raw = llm_call(
             system_prompt=SYSTEM_PROMPT,
             user_prompt=user_prompt,
-            model="llama-3.3-70b-versatile"
+            model=config.ENTITY_RESOLUTION_MODEL
         )
 
         result = parse_llm_json(raw, expected_type="dict")
