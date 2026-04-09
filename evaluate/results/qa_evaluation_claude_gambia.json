@@ -1,0 +1,178 @@
+{
+  "summary": {
+    "article_title": "Gambia women's national football team",
+    "kg_triples": 46,
+    "total_questions": 20,
+    "scored": 20,
+    "correct": 12,
+    "partial": 3,
+    "incorrect": 5,
+    "not_in_kg": 5,
+    "avg_score": 0.675,
+    "coverage": 0.750,
+    "judge": "Claude Sonnet 4.6 (manual)",
+    "notes": "Main gaps: match scores not captured, number of staffers missing, FIFA-recognised match status missing"
+  },
+  "qa_results": [
+    {
+      "question": "What does the Gambia women's national football team represent?",
+      "text_answer": "The Gambia in international football competition",
+      "kg_answer": "The Gambia",
+      "verdict": "partial",
+      "score": 0.5,
+      "reason": "Correct entity but missing in international football competition context"
+    },
+    {
+      "question": "Has the Gambia women's team competed in a FIFA-recognised match?",
+      "text_answer": "No — has not competed in a FIFA-recognised match",
+      "kg_answer": "NOT IN KG",
+      "verdict": "incorrect",
+      "score": 0.0,
+      "reason": "Key fact about NOT having played FIFA-recognised match not captured in KG"
+    },
+    {
+      "question": "Since what year has organised women's football been played in Gambia?",
+      "text_answer": "1998",
+      "kg_answer": "1998",
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "Exact match"
+    },
+    {
+      "question": "When did the Gambia women's national team play its first game?",
+      "text_answer": "2007",
+      "kg_answer": "2007",
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "Exact match"
+    },
+    {
+      "question": "Was the Gambia's first game FIFA-recognised?",
+      "text_answer": "No, it was not FIFA-recognised",
+      "kg_answer": "not FIFA-recognised",
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "Same answer"
+    },
+    {
+      "question": "What was the FIFA ranking of the Gambia women's team as of March 2012?",
+      "text_answer": "Unranked",
+      "kg_answer": "unranked in March 2012",
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "Same answer"
+    },
+    {
+      "question": "Which tournaments has the Gambia women's team NOT participated in?",
+      "text_answer": "Women's World Cup, 2010 African Women's Championship, 2011 All-Africa Games",
+      "kg_answer": "none of major regional and international tournaments",
+      "verdict": "partial",
+      "score": 0.5,
+      "reason": "KG captures general fact but misses specific tournament names"
+    },
+    {
+      "question": "How many players were in the initial pool for the under-17 team?",
+      "text_answer": "49 young women",
+      "kg_answer": "49 young women",
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "Exact match"
+    },
+    {
+      "question": "How many players were in the final under-17 squad?",
+      "text_answer": "24 players",
+      "kg_answer": "24 players",
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "Exact match"
+    },
+    {
+      "question": "Which village contributed two girls to the under-17 team?",
+      "text_answer": "SOS Children's Village Bakoteh",
+      "kg_answer": "SOS Children's Village Bakoteh",
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "Exact match"
+    },
+    {
+      "question": "What was the score of the first match against Sierra Leone?",
+      "text_answer": "3-0 to Gambia in Banjul",
+      "kg_answer": "NOT IN KG",
+      "verdict": "incorrect",
+      "score": 0.0,
+      "reason": "Match score not captured in KG triples"
+    },
+    {
+      "question": "Where was the return match against Sierra Leone played?",
+      "text_answer": "Makeni",
+      "kg_answer": "NOT IN KG",
+      "verdict": "incorrect",
+      "score": 0.0,
+      "reason": "Match location not captured in KG triples"
+    },
+    {
+      "question": "What was the score of the second match against Sierra Leone?",
+      "text_answer": "4-3 to Gambia",
+      "kg_answer": "NOT IN KG",
+      "verdict": "incorrect",
+      "score": 0.0,
+      "reason": "Match score not captured in KG triples"
+    },
+    {
+      "question": "Who scored Gambia's goals against Tunisia?",
+      "text_answer": "Adama Tamba and Awa Demba",
+      "kg_answer": "Adama Tamba and Awa Demba",
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "Exact match"
+    },
+    {
+      "question": "Which World Cup did Gambia qualify for?",
+      "text_answer": "2012 FIFA U-17 World Cup in Azerbaijan",
+      "kg_answer": "2012 Azerbaijan World Cup",
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "Same answer, minor wording difference"
+    },
+    {
+      "question": "What happened when the under-19 team was to play in the African Women's U-19 Championship?",
+      "text_answer": "Withdrew from the competition, first match was against Morocco",
+      "kg_answer": "withdrew from African Women's U-19 Championship",
+      "verdict": "partial",
+      "score": 0.5,
+      "reason": "Withdrawal captured but missing that first match was against Morocco"
+    },
+    {
+      "question": "When was Gambia's national football association founded?",
+      "text_answer": "1952",
+      "kg_answer": "1952",
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "Exact match"
+    },
+    {
+      "question": "When did Gambia's football association become affiliated with FIFA?",
+      "text_answer": "1968",
+      "kg_answer": "1968",
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "Exact match"
+    },
+    {
+      "question": "How many staffers are dedicated to women's football in the Gambia Football Association?",
+      "text_answer": "Four",
+      "kg_answer": "NOT IN KG",
+      "verdict": "incorrect",
+      "score": 0.0,
+      "reason": "Number of staffers not captured in KG triples"
+    },
+    {
+      "question": "What does the Gambia Football Association require regarding women?",
+      "text_answer": "Representation of women on the board per association's charter",
+      "kg_answer": "representation of women on the board",
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "Same answer, minor detail missing"
+    }
+  ]
+}

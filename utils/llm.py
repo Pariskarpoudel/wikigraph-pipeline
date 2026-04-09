@@ -1,113 +1,124 @@
 # utils/llm.py
 import os
 import time
+import asyncio
 import logging
 from dotenv import load_dotenv
-from groq import Groq
 import config
 
 load_dotenv()
+logger = logging.getLogger(__name__)
 
-_client = Groq(api_key=os.getenv("GROQ_API_KEY"))
-logger  = logging.getLogger(__name__)
+if config.LLM_BACKEND == "ollama":
+    from openai import OpenAI, AsyncOpenAI
+    _client = OpenAI(base_url=config.OLLAMA_BASE_URL, api_key="ollama")
+    _async_client = AsyncOpenAI(base_url=config.OLLAMA_BASE_URL, api_key="ollama")
 
+elif config.LLM_BACKEND == "groq":
+    from groq import Groq, AsyncGroq
+    _client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+    _async_client = AsyncGroq(api_key=os.getenv("GROQ_API_KEY"))
 
-def llm_call(
-    system_prompt: str,
-    user_prompt: str,
-    model: str = None,
-) -> str:
-    """
-    Single LLM call. Retries up to 3 times on failure.
-
-    model: defaults to config.LLM_DEFAULT_MODEL
-    """
+def llm_call(system_prompt, user_prompt, model=None):
     selected_model = model or config.LLM_DEFAULT_MODEL
-
     for attempt in range(config.LLM_MAX_RETRIES):
         try:
             response = _client.chat.completions.create(
                 model=selected_model,
                 messages=[
                     {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": user_prompt}
+                    {"role": "user", "content": user_prompt},
                 ],
-                temperature=config.LLM_TEMPERATURE
+                temperature=config.LLM_TEMPERATURE,
+                max_tokens=config.LLM_MAX_TOKENS,
             )
             return response.choices[0].message.content
-
         except Exception as e:
-            logger.warning(
-                f"LLM call failed (attempt {attempt + 1}/{config.LLM_MAX_RETRIES}): {e}"
-            )
+            logger.warning(f"LLM call failed (attempt {attempt+1}/{config.LLM_MAX_RETRIES}): {e}")
             if attempt < config.LLM_MAX_RETRIES - 1:
                 time.sleep(config.LLM_RETRY_DELAY_SECONDS)
             else:
                 raise
 
+async def llm_call_async(system_prompt, user_prompt, model=None):
+    selected_model = model or config.LLM_DEFAULT_MODEL
+    for attempt in range(config.LLM_MAX_RETRIES):
+        try:
+            response = await _async_client.chat.completions.create(
+                model=selected_model,
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user_prompt},
+                ],
+                temperature=config.LLM_TEMPERATURE,
+                max_tokens=config.LLM_MAX_TOKENS,
+            )
+            return response.choices[0].message.content
+        except Exception as e:
+            logger.warning(f"Async LLM call failed (attempt {attempt+1}/{config.LLM_MAX_RETRIES}): {e}")
+            if attempt < config.LLM_MAX_RETRIES - 1:
+                await asyncio.sleep(config.LLM_RETRY_DELAY_SECONDS)
+            else:
+                raise
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# # utils/llm.py
 # import os
 # import time
 # import logging
 # from dotenv import load_dotenv
-# from google import genai
-# from google.genai import types
+# import config
 
 # load_dotenv()
-# client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 
 # logger = logging.getLogger(__name__)
+
+# # ── Build client based on backend ────────────────────────────
+# if config.LLM_BACKEND == "ollama":
+#     from openai import OpenAI
+#     _client = OpenAI(
+#         base_url=config.OLLAMA_BASE_URL,
+#         api_key="ollama",          # Ollama ignores this but OpenAI client requires it
+#     )
+#     logger.info(f"LLM backend: Ollama @ {config.OLLAMA_BASE_URL} | model: {config.OLLAMA_MODEL}")
+
+# elif config.LLM_BACKEND == "groq":
+#     from groq import Groq
+#     _client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+#     logger.info(f"LLM backend: Groq | model: {config.GROQ_MODEL}")
+
+# else:
+#     raise ValueError(f"Unknown LLM_BACKEND: '{config.LLM_BACKEND}'. Use 'ollama' or 'groq'.")
 
 
 # def llm_call(
 #     system_prompt: str,
-#     user_prompt: str,
-#     model: str = "gemini-2.5-flash-lite",
-#     response_schema: dict = None
+#     user_prompt:   str,
+#     model:         str = None,
 # ) -> str:
 #     """
-#     Single LLM call. Retries up to 3 times on failure.
-
-#     model: "gemini-2.5-flash-lite"  → default, high volume steps (2, 3, 5, 7)
-#            "gemini-2.5-flash"  → reasoning-heavy steps (4, 6)
+#     Single LLM call. Retries up to LLM_MAX_RETRIES times on failure.
+#     Works with both Ollama and Groq backends transparently.
 #     """
-#     config = types.GenerateContentConfig(
-#         system_instruction=system_prompt,
-#         temperature=0.0,
-#         response_mime_type="application/json",
-#         response_schema=response_schema if response_schema else None
-#     )
+#     selected_model = model or config.LLM_DEFAULT_MODEL
 
-#     for attempt in range(3):
+#     for attempt in range(config.LLM_MAX_RETRIES):
 #         try:
-#             response = client.models.generate_content(
-#                 model=model,
-#                 contents=user_prompt,
-#                 config=config
+#             response = _client.chat.completions.create(
+#                 model=selected_model,
+#                 messages=[
+#                     {"role": "system", "content": system_prompt},
+#                     {"role": "user",   "content": user_prompt},
+#                 ],
+#                 temperature=config.LLM_TEMPERATURE,
+#                 max_tokens=config.LLM_MAX_TOKENS,
 #             )
-#             return response.text
+#             return response.choices[0].message.content
 
 #         except Exception as e:
-#             logger.warning(f"LLM call failed (attempt {attempt+1}/3): {e}")
-#             if attempt < 2:
-#                 time.sleep(5)
+#             logger.warning(
+#                 f"LLM call failed (attempt {attempt + 1}/{config.LLM_MAX_RETRIES}): {e}"
+#             )
+#             if attempt < config.LLM_MAX_RETRIES - 1:
+#                 time.sleep(config.LLM_RETRY_DELAY_SECONDS)
 #             else:
 #                 raise

@@ -52,23 +52,22 @@ def _normalize_singletons(
 
         user_prompt = f"""Article: {article_title}
 
-Review each relation name below:
-- If it is already concise and clear — return it exactly as is.
-- If it is lengthy, verbose, or imprecise — normalize it to a shorter cleaner form.
-- Never change the meaning, only shorten the phrasing if needed.
-- Output every relation in the list — do not skip any.
+Normalize each relation name to a concise 1–3 word verb phrase.
+- Keep the meaning exactly — only shorten the phrasing.
+- If already 1–3 words and clear — return it exactly as is.
+- Output every relation — do not skip any.
 
 Relations to review:
 {relations_block}
 
 Output format:
 {{
-  "original_relation": "normalized_or_same_relation",
+  "original_relation": "normalized_1_to_3_word_form",
   ...
 }}"""
 
         raw = llm_call(
-            system_prompt="You are a knowledge graph relation normalizer. Output JSON only. No explanation outside JSON.",
+            system_prompt="You are a knowledge graph relation normalizer. Normalize relation names to concise 1–3 word verb phrases. Output JSON only. No explanation outside JSON.",
             user_prompt=user_prompt,
             model=config.RELATION_SINGLETON_NORMALIZATION_MODEL
         )

@@ -85,17 +85,36 @@ Get your free Neo4j AuraDB credentials at: `https://neo4j.com/cloud/aura`
 
 ## Running the Pipeline
 
-**Run on a single article:**
+**1. Wiki: run a single article (.txt)**
 ```bash
 python main.py data/raw/article_5.txt
 ```
 
-**Run on all articles:**
+**2. Wiki: run JSONL bulk mode**
 ```bash
-python main.py
+# uses config.WIKI_JSONL_INPUT_FILE by default
+python main.py --jsonl
+
+# or provide a custom JSONL path
+python main.py --jsonl path/to/articles.jsonl
 ```
 
-Output KG JSON files are saved to `data/output/`.
+**3. Essay: run JSONL bulk mode**
+```bash
+# uses config.ESSAY_JSONL_INPUT_FILE by default
+python main.py --essay
+
+# or provide a custom JSONL path
+python main.py --essay path/to/essays.jsonl
+```
+
+**4. Essay: run a single essay (.txt)**
+```bash
+python main.py --essay-txt data/mine_raw/essay1.txt
+```
+
+**Outputs**
+- All output files are saved to `data/output/`.
 
 ## Global Config (config.py)
 

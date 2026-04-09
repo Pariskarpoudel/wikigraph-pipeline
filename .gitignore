@@ -1,2 +1,11 @@
 .env
 __pycache__/
+mine.ipynb
+test_*.py
+data/sample.py
+data/output/progress.json
+data/output/Plain_maskray.json
+data/output/kg_output.jsonl
+data/output/Gambia_women_'s_national_football_team.json
+data/output/gambia version2.json
+articles_train.jsonl

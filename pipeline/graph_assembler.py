@@ -17,22 +17,18 @@ def assemble_graph(
     relation_concepts:    Dict[str, List[str]],
 ) -> Dict:
 
-    # All unique nodes — subjects and objects ( entities and literals )
     all_nodes = set()
     for t in resolved_triples:
         all_nodes.add(t["subject"])
         all_nodes.add(t["object"])
 
-    # Build node dict — entities get concepts, literals get empty
     nodes = {
         node: {
             "concepts": entity_concepts.get(node, [])
-            # empty list for literals — no concepts assigned
         }
         for node in all_nodes
     }
 
-    # Build relation dict
     relations = {
         t["relation"]: {
             "definition": relation_definitions.get(t["relation"], ""),
@@ -60,12 +56,10 @@ def assemble_graph(
 
 def save_graph(kg: Dict, output_dir: str = "data/output") -> str:
     """
-    Save knowledge graph to JSON file.
-    Returns path to saved file.
+    Save KG as individual .json file.
+    Used in single article mode (python main.py data/raw/article.txt)
     """
     os.makedirs(output_dir, exist_ok=True)
-
-    # Sanitize title for filename
     filename = kg["article_title"].replace(" ", "_").replace("/", "_") + ".json"
     path     = os.path.join(output_dir, filename)
 
@@ -76,14 +70,28 @@ def save_graph(kg: Dict, output_dir: str = "data/output") -> str:
     return path
 
 
+def save_graph_jsonl(kg: Dict, jsonl_path: str) -> None:
+    """
+    Append KG as one line to a shared JSONL output file.
+    Used in JSONL bulk mode (python main.py --jsonl)
+    Each article = one line in the file.
+    """
+    os.makedirs(os.path.dirname(jsonl_path), exist_ok=True)
+
+    with open(jsonl_path, "a", encoding="utf-8") as f:
+        f.write(json.dumps(kg, ensure_ascii=False) + "\n")
+
+    logger.info(f"Graph appended to: {jsonl_path}")
+
+
 def load_graph(path: str) -> Dict:
     """Load a saved knowledge graph from JSON file."""
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
-    
-# Keeping this in graph_assembler.py as a utility for later (if needed):
+
+
 def concepts_to_triples(kg: Dict) -> List[Dict]:
-    """Convert concept metadata to triples when needed for downstream tasks."""
+    """Convert concept metadata to triples for downstream tasks."""
     concept_triples = []
     for entity, data in kg["nodes"].items():
         for concept in data.get("concepts", []):

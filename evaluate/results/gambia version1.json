@@ -1,0 +1,743 @@
+{
+  "article_title": "Gambia women 's national football team",
+  "nodes": {
+    "no FIFA-sanctioned match as of April 2012": {
+      "concepts": []
+    },
+    "poverty amongst women": {
+      "concepts": []
+    },
+    "funding": {
+      "concepts": []
+    },
+    "Gambia's national football association": {
+      "concepts": [
+        "Football Federation",
+        "Sports Organization",
+        "National Institution"
+      ]
+    },
+    "national football associations": {
+      "concepts": []
+    },
+    "1998": {
+      "concepts": []
+    },
+    "no major regional and international tournaments": {
+      "concepts": []
+    },
+    "2009": {
+      "concepts": []
+    },
+    "Sierra Leone": {
+      "concepts": []
+    },
+    "Sierra Leone in qualifying match": {
+      "concepts": []
+    },
+    "2012 Azerbaijan World Cup": {
+      "concepts": []
+    },
+    "national and scholastic": {
+      "concepts": []
+    },
+    "Awa Demba": {
+      "concepts": [
+        "Female Athlete",
+        "Sports Player",
+        "Competitor"
+      ]
+    },
+    "SOS Children’s Village Bakoteh": {
+      "concepts": [
+        "Youth Organization",
+        "Charitable Institution",
+        "Community Group"
+      ]
+    },
+    "Sierra Leone 4-3 in Makeni": {
+      "concepts": []
+    },
+    "Tunisia 2-1 away": {
+      "concepts": []
+    },
+    "women's football": {
+      "concepts": [
+        "Female Sport",
+        "Team Game",
+        "Recreational Activity"
+      ]
+    },
+    "regional qualifiers for an under-19 World Cup": {
+      "concepts": []
+    },
+    "FIFA U-17 Women's World Cup qualifiers": {
+      "concepts": []
+    },
+    "women footballers in Africa": {
+      "concepts": [
+        "Female Athletes",
+        "Sports Women",
+        "Women Players"
+      ]
+    },
+    "youth teams": {
+      "concepts": []
+    },
+    "Tunisia 1-0 at home": {
+      "concepts": []
+    },
+    "Adama Tamba": {
+      "concepts": [
+        "Female Athlete",
+        "Sports Player",
+        "Competitor"
+      ]
+    },
+    "women's football in Africa": {
+      "concepts": [
+        "Women's Sport",
+        "Football Discipline",
+        "Recreational Activity"
+      ]
+    },
+    "African Women's U-19 Championship": {
+      "concepts": []
+    },
+    "by charter": {
+      "concepts": []
+    },
+    "final round": {
+      "concepts": []
+    },
+    "Gambia Football Association": {
+      "concepts": [
+        "Football Federation",
+        "Sports Governing Body",
+        "National Authority"
+      ]
+    },
+    "initial pool of 49 young women": {
+      "concepts": []
+    },
+    "1952": {
+      "concepts": []
+    },
+    "The Gambia": {
+      "concepts": [
+        "African Country",
+        "National Entity",
+        "Geographic Location"
+      ]
+    },
+    "similar to those across Africa": {
+      "concepts": []
+    },
+    "24 players": {
+      "concepts": []
+    },
+    "unranked in March 2012": {
+      "concepts": []
+    },
+    "national competition in Gambia": {
+      "concepts": [
+        "Football Tournament",
+        "Sports Event",
+        "Competition"
+      ]
+    },
+    "2007": {
+      "concepts": []
+    },
+    "competition in Gambia": {
+      "concepts": [
+        "Local Tournament",
+        "National League",
+        "Sports Event"
+      ]
+    },
+    "United States": {
+      "concepts": []
+    },
+    "under-19 team": {
+      "concepts": []
+    },
+    "Sierra Leone 3-0 in Banjul": {
+      "concepts": []
+    },
+    "FIFA": {
+      "concepts": [
+        "Football Federation",
+        "Sports Organization",
+        "Global Institution"
+      ]
+    },
+    "Confederation of African Football qualifiers for the FIFA U-17 World Cup": {
+      "concepts": []
+    },
+    "national team development": {
+      "concepts": [
+        "Sports Development",
+        "Team Management",
+        "Organizational Growth"
+      ]
+    },
+    "FIFA-recognised youth national team": {
+      "concepts": []
+    },
+    "inequalities": {
+      "concepts": []
+    },
+    "human rights abuses targeting women": {
+      "concepts": []
+    },
+    "Gambia women's national football team": {
+      "concepts": [
+        "Women's Football Team",
+        "National Sports Team",
+        "Athletic Group"
+      ]
+    },
+    "international football competition": {
+      "concepts": []
+    },
+    "Gambia under-19 team": {
+      "concepts": [
+        "Youth Football Team",
+        "National Squad",
+        "Sports Team"
+      ]
+    },
+    "limited access to education": {
+      "concepts": []
+    },
+    "not FIFA-recognised": {
+      "concepts": []
+    },
+    "most popular women's sport in Gambia": {
+      "concepts": []
+    },
+    "football in Gambia": {
+      "concepts": [
+        "National Sport",
+        "Recreational Activity",
+        "Physical Game"
+      ]
+    },
+    "1968": {
+      "concepts": []
+    },
+    "international governing body of football": {
+      "concepts": []
+    },
+    "Morocco": {
+      "concepts": []
+    },
+    "four": {
+      "concepts": []
+    },
+    "Europe": {
+      "concepts": []
+    },
+    "Gambia under-17 women's team": {
+      "concepts": [
+        "Youth Football Team",
+        "Women's Sports Team",
+        "Athletic Squad"
+      ]
+    },
+    "women's national football team": {
+      "concepts": []
+    }
+  },
+  "relations": {
+    "represents": {
+      "definition": "The subject entity acts on behalf of or symbolizes the object entity.",
+      "concepts": [
+        "National Symbol",
+        "Country Affiliation",
+        "Representative Relation"
+      ]
+    },
+    "played in": {
+      "definition": "The subject entity is participated in or takes place within the object entity, which is a location or region.",
+      "concepts": [
+        "Location Participation",
+        "Geographic Involvement",
+        "Spatial Relation"
+      ]
+    },
+    "is": {
+      "definition": "The subject entity is classified or defined as the object entity.",
+      "concepts": [
+        "Classification",
+        "Definition Type",
+        "Identity Relation"
+      ]
+    },
+    "started in": {
+      "definition": "The subject entity began or originated at the time specified by the object entity.",
+      "concepts": [
+        "Temporal Origin",
+        "Starting Point",
+        "Time Relation"
+      ]
+    },
+    "has": {
+      "definition": "The subject entity possesses or contains the object entity.",
+      "concepts": [
+        "Possession",
+        "Containment",
+        "Attribution Relation"
+      ]
+    },
+    "withdrew from": {
+      "definition": "The subject entity removed itself from participation in the object entity.",
+      "concepts": [
+        "Removal Action",
+        "Participation Cancellation",
+        "Separation Relation"
+      ]
+    },
+    "has staff": {
+      "definition": "",
+      "concepts": []
+    },
+    "faces challenges": {
+      "definition": "The subject entity encounters or is affected by difficulties or obstacles, which are similar to or include the object entity.",
+      "concepts": [
+        "Difficulty Encounter",
+        "Obstacle Experience",
+        "Adversity Relation"
+      ]
+    },
+    "first game": {
+      "definition": "The subject entity's initial or debut game or match was characterized by the object entity.",
+      "concepts": [
+        "Initial Event",
+        "Debut Characteristic",
+        "Preliminary Condition"
+      ]
+    },
+    "FIFA ranking": {
+      "definition": "",
+      "concepts": []
+    },
+    "formed from": {
+      "definition": "The subject entity was created or established using the resources, group, or collection specified by the object entity.",
+      "concepts": [
+        "Resource Creation",
+        "Group Establishment",
+        "Origin Relation"
+      ]
+    },
+    "reduced to": {
+      "definition": "",
+      "concepts": []
+    },
+    "has members": {
+      "definition": "",
+      "concepts": []
+    },
+    "play": {
+      "definition": "",
+      "concepts": []
+    },
+    "beat": {
+      "definition": "The subject entity defeated or outperformed the opponent specified by the object entity, often by a specific score or margin.",
+      "concepts": [
+        "Defeat Infliction",
+        "Competition Outcome",
+        "Performance Comparison"
+      ]
+    },
+    "qualify for": {
+      "definition": "",
+      "concepts": []
+    },
+    "score for": {
+      "definition": "",
+      "concepts": []
+    },
+    "first match": {
+      "definition": "",
+      "concepts": []
+    },
+    "gets funding from": {
+      "definition": "",
+      "concepts": []
+    },
+    "lacks funding from": {
+      "definition": "",
+      "concepts": []
+    },
+    "migrate to": {
+      "definition": "",
+      "concepts": []
+    },
+    "affiliated with": {
+      "definition": "The subject entity is officially associated or connected with the object entity, often for mutual benefit or cooperation.",
+      "concepts": [
+        "Official Connection",
+        "Organizational Tie",
+        "Institutional Linkage"
+      ]
+    },
+    "affiliated in": {
+      "definition": "",
+      "concepts": []
+    },
+    "began women's football education": {
+      "definition": "",
+      "concepts": []
+    },
+    "active on": {
+      "definition": "",
+      "concepts": []
+    },
+    "requires women on board": {
+      "definition": "",
+      "concepts": []
+    }
+  },
+  "triples": [
+    {
+      "subject": "Gambia women's national football team",
+      "relation": "represents",
+      "object": "The Gambia"
+    },
+    {
+      "subject": "Gambia women's national football team",
+      "relation": "played in",
+      "object": "international football competition"
+    },
+    {
+      "subject": "FIFA",
+      "relation": "is",
+      "object": "international governing body of football"
+    },
+    {
+      "subject": "women's football",
+      "relation": "played in",
+      "object": "The Gambia"
+    },
+    {
+      "subject": "women's football",
+      "relation": "started in",
+      "object": "1998"
+    },
+    {
+      "subject": "The Gambia",
+      "relation": "has",
+      "object": "youth teams"
+    },
+    {
+      "subject": "Gambia under-17 women's team",
+      "relation": "played in",
+      "object": "FIFA U-17 Women's World Cup qualifiers"
+    },
+    {
+      "subject": "Gambia under-19 team",
+      "relation": "withdrew from",
+      "object": "regional qualifiers for an under-19 World Cup"
+    },
+    {
+      "subject": "Gambia Football Association",
+      "relation": "has staff",
+      "object": "women's football"
+    },
+    {
+      "subject": "national team development",
+      "relation": "faces challenges",
+      "object": "similar to those across Africa"
+    },
+    {
+      "subject": "The Gambia",
+      "relation": "has",
+      "object": "women's national football team"
+    },
+    {
+      "subject": "Gambia women's national football team",
+      "relation": "first game",
+      "object": "2007"
+    },
+    {
+      "subject": "Gambia women's national football team",
+      "relation": "first game",
+      "object": "not FIFA-recognised"
+    },
+    {
+      "subject": "Gambia women's national football team",
+      "relation": "FIFA ranking",
+      "object": "unranked in March 2012"
+    },
+    {
+      "subject": "The Gambia",
+      "relation": "played in",
+      "object": "no FIFA-sanctioned match as of April 2012"
+    },
+    {
+      "subject": "Gambia women's national football team",
+      "relation": "played in",
+      "object": "no major regional and international tournaments"
+    },
+    {
+      "subject": "The Gambia",
+      "relation": "has",
+      "object": "FIFA-recognised youth national team"
+    },
+    {
+      "subject": "Gambia under-17 women's team",
+      "relation": "played in",
+      "object": "Confederation of African Football qualifiers for the FIFA U-17 World Cup"
+    },
+    {
+      "subject": "Gambia under-17 women's team",
+      "relation": "formed from",
+      "object": "initial pool of 49 young women"
+    },
+    {
+      "subject": "Gambia under-17 women's team",
+      "relation": "reduced to",
+      "object": "24 players"
+    },
+    {
+      "subject": "SOS Children’s Village Bakoteh",
+      "relation": "has members",
+      "object": "Gambia under-17 women's team"
+    },
+    {
+      "subject": "The Gambia",
+      "relation": "play",
+      "object": "Sierra Leone"
+    },
+    {
+      "subject": "The Gambia",
+      "relation": "beat",
+      "object": "Sierra Leone in qualifying match"
+    },
+    {
+      "subject": "The Gambia",
+      "relation": "beat",
+      "object": "Sierra Leone 3-0 in Banjul"
+    },
+    {
+      "subject": "The Gambia",
+      "relation": "beat",
+      "object": "Sierra Leone 4-3 in Makeni"
+    },
+    {
+      "subject": "The Gambia",
+      "relation": "qualify for",
+      "object": "final round"
+    },
+    {
+      "subject": "The Gambia",
+      "relation": "beat",
+      "object": "Tunisia 1-0 at home"
+    },
+    {
+      "subject": "The Gambia",
+      "relation": "beat",
+      "object": "Tunisia 2-1 away"
+    },
+    {
+      "subject": "Adama Tamba",
+      "relation": "score for",
+      "object": "The Gambia"
+    },
+    {
+      "subject": "Awa Demba",
+      "relation": "score for",
+      "object": "The Gambia"
+    },
+    {
+      "subject": "The Gambia",
+      "relation": "qualify for",
+      "object": "2012 Azerbaijan World Cup"
+    },
+    {
+      "subject": "The Gambia",
+      "relation": "has",
+      "object": "under-19 team"
+    },
+    {
+      "subject": "Gambia under-19 team",
+      "relation": "played in",
+      "object": "African Women's U-19 Championship"
+    },
+    {
+      "subject": "Gambia under-19 team",
+      "relation": "withdrew from",
+      "object": "African Women's U-19 Championship"
+    },
+    {
+      "subject": "Gambia under-19 team",
+      "relation": "first match",
+      "object": "Morocco"
+    },
+    {
+      "subject": "women's football in Africa",
+      "relation": "faces challenges",
+      "object": "limited access to education"
+    },
+    {
+      "subject": "women's football in Africa",
+      "relation": "faces challenges",
+      "object": "poverty amongst women"
+    },
+    {
+      "subject": "women's football in Africa",
+      "relation": "faces challenges",
+      "object": "inequalities"
+    },
+    {
+      "subject": "women's football in Africa",
+      "relation": "faces challenges",
+      "object": "human rights abuses targeting women"
+    },
+    {
+      "subject": "women's football in Africa",
+      "relation": "faces challenges",
+      "object": "funding"
+    },
+    {
+      "subject": "women's football in Africa",
+      "relation": "gets funding from",
+      "object": "FIFA"
+    },
+    {
+      "subject": "women's football in Africa",
+      "relation": "lacks funding from",
+      "object": "national football associations"
+    },
+    {
+      "subject": "women footballers in Africa",
+      "relation": "migrate to",
+      "object": "Europe"
+    },
+    {
+      "subject": "women footballers in Africa",
+      "relation": "migrate to",
+      "object": "United States"
+    },
+    {
+      "subject": "Gambia's national football association",
+      "relation": "started in",
+      "object": "1952"
+    },
+    {
+      "subject": "Gambia's national football association",
+      "relation": "affiliated with",
+      "object": "FIFA"
+    },
+    {
+      "subject": "Gambia's national football association",
+      "relation": "affiliated in",
+      "object": "1968"
+    },
+    {
+      "subject": "women's football",
+      "relation": "is",
+      "object": "most popular women's sport in Gambia"
+    },
+    {
+      "subject": "football in Gambia",
+      "relation": "started in",
+      "object": "1998"
+    },
+    {
+      "subject": "national competition in Gambia",
+      "relation": "started in",
+      "object": "2007"
+    },
+    {
+      "subject": "FIFA",
+      "relation": "began women's football education",
+      "object": "2007"
+    },
+    {
+      "subject": "competition in Gambia",
+      "relation": "active on",
+      "object": "national and scholastic"
+    },
+    {
+      "subject": "competition in Gambia",
+      "relation": "started in",
+      "object": "2009"
+    },
+    {
+      "subject": "Gambia Football Association",
+      "relation": "has staff",
+      "object": "four"
+    },
+    {
+      "subject": "Gambia Football Association",
+      "relation": "requires women on board",
+      "object": "by charter"
+    }
+  ],
+  "entity_map": {
+    "Gambia's national football association": "Gambia's national football association",
+    "Gambia women's national football team": "Gambia women's national football team",
+    "SOS Children’s Village Bakoteh": "SOS Children’s Village Bakoteh",
+    "national competition in Gambia": "national competition in Gambia",
+    "national football association": "Gambia Football Association",
+    "Gambia Football Association": "Gambia Football Association",
+    "Gambia under-17 women's team": "Gambia under-17 women's team",
+    "under-17 side": "Gambia under-17 women's team",
+    "women footballers in Africa": "women footballers in Africa",
+    "women's football in Africa": "women's football in Africa",
+    "national team development": "national team development",
+    "competition in Gambia": "competition in Gambia",
+    "Gambia under-19 team": "Gambia under-19 team",
+    "football in Gambia": "football in Gambia",
+    "women's football": "women's football",
+    "under-19 side": "Gambia under-19 team",
+    "Adama Tamba": "Adama Tamba",
+    "The Gambia": "The Gambia",
+    "Gambia": "The Gambia",
+    "Awa Demba": "Awa Demba",
+    "football": "women's football",
+    "FIFA": "FIFA"
+  },
+  "relation_map": {
+    "faces challenges": "faces challenges",
+    "has": "has",
+    "beat": "beat",
+    "won against": "beat",
+    "is": "is",
+    "played in": "played in",
+    "participated in": "played in",
+    "competed in": "played in",
+    "withdrew from": "withdrew from",
+    "qualified for": "qualify for",
+    "scored for": "score for",
+    "leave to seek opportunity in": "migrate to",
+    "represents": "represents",
+    "competes in": "played in",
+    "started in": "started in",
+    "founded in": "started in",
+    "launched in": "started in",
+    "has staff focusing on": "has staff",
+    "played first game in": "first game",
+    "first game": "first game",
+    "ranked by FIFA as of": "FIFA ranking",
+    "formed from": "formed from",
+    "narrowed to": "reduced to",
+    "had members in": "has members",
+    "played": "play",
+    "to play in": "played in",
+    "first match against": "first match",
+    "receives financial assistance from": "gets funding from",
+    "lacks financial assistance from": "lacks funding from",
+    "affiliated with": "affiliated with",
+    "affiliation year": "affiliated in",
+    "first played in organized system in": "started in",
+    "started education course on football for women in": "began women's football education",
+    "active on levels": "active on",
+    "active since": "started in",
+    "has staffers dedicated to women's football": "has staff",
+    "requires representation of women on board": "requires women on board"
+  }
+}

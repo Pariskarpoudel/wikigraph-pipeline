@@ -1,0 +1,855 @@
+{
+  "summary": {
+    "article_title": "Plain maskray",
+    "total_triples": 84,
+    "scored_triples": 74,
+    "correct": 65,
+    "partial": 4,
+    "incorrect": 5,
+    "unscored": 10,
+    "avg_score": 0.905,
+    "precision_approx": 0.905
+  },
+  "triple_results": [
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "is a",
+        "object": "species of stingray"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "The article states that the plain maskray is a species of stingray in the family Dasyatidae."
+    },
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "found in",
+        "object": "northern Australia"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "The article mentions that the plain maskray is found in shallow, soft-bottomed habitats off northern Australia."
+    },
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "has",
+        "object": "diamond-shaped pectoral fin disc"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "The article describes the plain maskray as having a diamond-shaped, grayish green pectoral fin disc."
+    },
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "has",
+        "object": "whip-like tail"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "The article states that the plain maskray has a short, whip-like tail with alternating black and white bands and fin folds above and below."
+    },
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "has",
+        "object": "short rows of thorns"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "The article mentions that there are short rows of thorns on the back and the base of the tail of the plain maskray."
+    },
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "has",
+        "object": "dark mask-like pattern"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "the article mentions a dark mask-like pattern around the eyes"
+    },
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "eats",
+        "object": "caridean shrimp"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "the article states that the plain maskray feeds mainly on caridean shrimp"
+    },
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "eats",
+        "object": "polychaete worms"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "the article states that the plain maskray feeds mainly on polychaete worms"
+    },
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "eats",
+        "object": "small bony fishes"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "the article mentions that the plain maskray eats small bony fishes to a lesser extent"
+    },
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "is",
+        "object": "viviparous"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "the article states that the plain maskray is viviparous, with females producing litters of one or two young"
+    },
+    {
+      "triple": {
+        "subject": "female plain maskray",
+        "relation": "produces",
+        "object": "litters of one or two young"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "females produce litters of one or two young that are nourished during gestation via histotroph"
+    },
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "lacks",
+        "object": "economic value"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "this species lacks economic value but is caught incidentally in bottom trawls"
+    },
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "is caught in",
+        "object": "bottom trawls"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "it is caught incidentally in bottom trawls"
+    },
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "listed as",
+        "object": "Near Threatened"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "the International Union for Conservation of Nature has listed it as Near Threatened"
+    },
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "listed by",
+        "object": "International Union for Conservation of Nature"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "the International Union for Conservation of Nature has listed the plain maskray as Near Threatened"
+    },
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "has",
+        "object": "limited distribution"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "the article states the plain maskray has a limited distribution"
+    },
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "has",
+        "object": "low fecundity"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "the article mentions the plain maskray has low fecundity"
+    },
+    {
+      "triple": {
+        "subject": "Peter Last",
+        "relation": "authored",
+        "object": "first scientific description of the plain maskray"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "the article states Peter Last authored the first scientific description of the plain maskray"
+    },
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "described in",
+        "object": "Memoirs of the National Museum of Victoria"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "the article mentions the plain maskray was described in Memoirs of the National Museum of Victoria"
+    },
+    {
+      "triple": {
+        "subject": "Memoirs of the National Museum of Victoria",
+        "relation": "published by",
+        "object": "National Museum of Victoria"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "the article implies Memoirs of the National Museum of Victoria is published by the National Museum of Victoria"
+    },
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "specific name",
+        "object": "annotatus"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "The article states that the specific name annotatus refers to the plain maskray"
+    },
+    {
+      "triple": {
+        "subject": "annotatus",
+        "relation": "derived from",
+        "object": "Latin an and notatus"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "The article explains that annotatus is derived from the Latin an and notatus, meaning not marked"
+    },
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "holotype",
+        "object": "male 21@.@2 cm"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "The article mentions that the holotype is a male 21@.@2 cm across"
+    },
+    {
+      "triple": {
+        "subject": "holotype of plain maskray",
+        "relation": "found in",
+        "object": "Western Australia"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "The article states that the holotype was caught off Western Australia"
+    },
+    {
+      "triple": {
+        "subject": "Peter Last",
+        "relation": "elevated to genus",
+        "object": "Dasyatis"
+      },
+      "verdict": "incorrect",
+      "score": 0.0,
+      "reason": "The article states that Peter Last elevated the kuhlii group to the rank of full genus as Neotrygon, not Dasyatis"
+    },
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "is a",
+        "object": "maskray species group"
+      },
+      "verdict": "partial",
+      "score": 0.5,
+      "reason": "article mentions the plain maskray belongs to the 'maskray' species group but does not explicitly state it is a maskray species group"
+    },
+    {
+      "triple": {
+        "subject": "maskray species group",
+        "relation": "has",
+        "object": "bluespotted stingray"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "article mentions the bluespotted stingray was part of the 'maskray' species group"
+    },
+    {
+      "triple": {
+        "subject": "Peter Last",
+        "relation": "elevated to genus",
+        "object": "Neotrygon"
+      },
+      "verdict": "partial",
+      "score": 0.5,
+      "reason": "article mentions Peter Last elevated the kuhlii group to the rank of full genus as Neotrygon, but with William White's help"
+    },
+    {
+      "triple": {
+        "subject": "William White",
+        "relation": "elevated to genus",
+        "object": "Neotrygon"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "article mentions William White, along with Peter Last, elevated the kuhlii group to the rank of full genus as Neotrygon"
+    },
+    {
+      "triple": {
+        "subject": "Neotrygon",
+        "relation": "elevated in",
+        "object": "2008"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "article mentions the kuhlii group was elevated to the rank of full genus as Neotrygon in 2008"
+    },
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "most basal member of",
+        "object": "Neotrygon"
+      },
+      "verdict": "partial",
+      "score": 0.5,
+      "reason": "plain maskray and Ningaloo maskray are both most basal members of Neotrygon"
+    },
+    {
+      "triple": {
+        "subject": "Ningaloo maskray",
+        "relation": "most basal member of",
+        "object": "Neotrygon"
+      },
+      "verdict": "partial",
+      "score": 0.5,
+      "reason": "Ningaloo maskray and plain maskray are both most basal members of Neotrygon"
+    },
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "divergence occurred",
+        "object": "~54 Ma"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "supported by article, divergence of N. annotata lineage occurred ~54 Ma"
+    },
+    {
+      "triple": {
+        "subject": "N. annotata",
+        "relation": "cryptic species complex",
+        "object": "yes"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "article suggests N. annotata is a cryptic species complex"
+    },
+    {
+      "triple": {
+        "subject": "N. annotata",
+        "relation": "divergence occurred",
+        "object": "~4@.@9 Ma"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "supported by article, two putative species diverged ~4@.@9 Ma"
+    },
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "has",
+        "object": "pectoral fin disc"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "The article mentions that the plain maskray has a pectoral fin disc."
+    },
+    {
+      "triple": {
+        "subject": "pectoral fin disc",
+        "relation": "is",
+        "object": "thin and diamond-shaped"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "The article describes the pectoral fin disc as thin and diamond-shaped."
+    },
+    {
+      "triple": {
+        "subject": "pectoral fin disc",
+        "relation": "has",
+        "object": "narrowly rounded outer corners"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "The article states that the pectoral fin disc has narrowly rounded outer corners."
+    },
+    {
+      "triple": {
+        "subject": "pectoral fin disc",
+        "relation": "grows to",
+        "object": "1-1.3 times longer than wide"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "The article mentions that the pectoral fin disc measures 1.1 – 1.3 times longer than wide."
+    },
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "has",
+        "object": "small eyes"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "The article describes the eyes of the plain maskray as small."
+    },
+    {
+      "triple": {
+        "subject": "small eyes",
+        "relation": "found in",
+        "object": "close together"
+      },
+      "verdict": "unscored",
+      "score": null,
+      "reason": "LLM parse failed"
+    },
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "has",
+        "object": "spiracles"
+      },
+      "verdict": "unscored",
+      "score": null,
+      "reason": "LLM parse failed"
+    },
+    {
+      "triple": {
+        "subject": "spiracles",
+        "relation": "found in",
+        "object": "behind the eyes"
+      },
+      "verdict": "unscored",
+      "score": null,
+      "reason": "LLM parse failed"
+    },
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "has",
+        "object": "nostrils"
+      },
+      "verdict": "unscored",
+      "score": null,
+      "reason": "LLM parse failed"
+    },
+    {
+      "triple": {
+        "subject": "nostrils",
+        "relation": "is",
+        "object": "elongated"
+      },
+      "verdict": "unscored",
+      "score": null,
+      "reason": "LLM parse failed"
+    },
+    {
+      "triple": {
+        "subject": "nostrils",
+        "relation": "has",
+        "object": "skirt-shaped flap of skin"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "The article states that the nostrils have a skirt-shaped flap of skin between them."
+    },
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "has",
+        "object": "small mouth"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "The article describes the plain maskray as having a small mouth."
+    },
+    {
+      "triple": {
+        "subject": "small mouth",
+        "relation": "has",
+        "object": "prominent furrows"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "The article mentions that the small mouth bears prominent furrows at the corners."
+    },
+    {
+      "triple": {
+        "subject": "small mouth",
+        "relation": "has",
+        "object": "two slender papillae"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "The article states that the small mouth contains two slender papillae on the floor."
+    },
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "has",
+        "object": "gill slits"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "The article mentions that the plain maskray has five pairs of gill slits."
+    },
+    {
+      "triple": {
+        "subject": "gill slits",
+        "relation": "number",
+        "object": "five pairs"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "The article states that there are five pairs of gill slits."
+    },
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "has",
+        "object": "pelvic fins"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "The article mentions that the plain maskray has pelvic fins."
+    },
+    {
+      "triple": {
+        "subject": "pelvic fins",
+        "relation": "is",
+        "object": "fairly large and pointed"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "The article describes the pelvic fins as fairly large and pointed."
+    },
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "has",
+        "object": "tail"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "The article states that the plain maskray has a tail."
+    },
+    {
+      "triple": {
+        "subject": "tail",
+        "relation": "is",
+        "object": "short"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "The article describes the tail of the plain maskray as short."
+    },
+    {
+      "triple": {
+        "subject": "tail",
+        "relation": "has",
+        "object": "broad and flattened base"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "The article states that the tail has a broad and flattened base leading to usually two stinging spines."
+    },
+    {
+      "triple": {
+        "subject": "tail",
+        "relation": "has",
+        "object": "two stinging spines"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "The article mentions that the tail usually has two stinging spines."
+    },
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "has",
+        "object": "dermal denticles"
+      },
+      "verdict": "incorrect",
+      "score": 0.0,
+      "reason": "The article states that most of the body lacks dermal denticles, implying they are not present in general."
+    },
+    {
+      "triple": {
+        "subject": "dermal denticles",
+        "relation": "is",
+        "object": "mostly absent"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "The article states that most of the body lacks dermal denticles."
+    },
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "has",
+        "object": "midline row of thorns"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "The article mentions a midline row of 4–13 small, closely spaced thorns behind the spiracles on the plain maskray's body."
+    },
+    {
+      "triple": {
+        "subject": "midline row of thorns",
+        "relation": "number",
+        "object": "4-13"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "the article states that there is a midline row of 4–13 small, closely spaced thorns behind the spiracles"
+    },
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "has",
+        "object": "dorsal coloration"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "the article describes the dorsal coloration of the plain maskray"
+    },
+    {
+      "triple": {
+        "subject": "dorsal coloration",
+        "relation": "is",
+        "object": "grayish green"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "the article states that the dorsal coloration is grayish green, becoming pinkish towards the disc margins"
+    },
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "has",
+        "object": "ventral coloration"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "the article describes the ventral coloration of the plain maskray"
+    },
+    {
+      "triple": {
+        "subject": "ventral coloration",
+        "relation": "is",
+        "object": "plain white"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "the article states that the underside is plain white"
+    },
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "grows to",
+        "object": "24 cm across"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "supported by article as the width of the plain maskray"
+    },
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "grows to",
+        "object": "45 cm long"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "supported by article as the length of the plain maskray"
+    },
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "hunts at",
+        "object": "surface of the bottom substrate"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "supported by article as the plain maskray's hunting behavior"
+    },
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "eats",
+        "object": "caridean shrimp"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "supported by article as part of the plain maskray's diet"
+    },
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "eats",
+        "object": "polychaete worms"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "supported by article as part of the plain maskray's diet"
+    },
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "eats",
+        "object": "small bony fishes"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "supported by article as part of the plain maskray's diet"
+    },
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "eats",
+        "object": "penaeid prawn"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "mentioned in article as an occasional part of the plain maskray's diet"
+    },
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "eats",
+        "object": "amphipod"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "mentioned in article as an occasional part of the plain maskray's diet"
+    },
+    {
+      "triple": {
+        "subject": "larger plain maskray",
+        "relation": "eats",
+        "object": "greater variety of prey"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "supported by article, which states that larger rays consume a greater variety of prey"
+    },
+    {
+      "triple": {
+        "subject": "plain maskray",
+        "relation": "parasitized by",
+        "object": "Acanthobothrium jonesi"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "supported by article, which mentions Acanthobothrium jonesi as a parasite of the plain maskray"
+    },
+    {
+      "triple": {
+        "subject": "developing embryos",
+        "relation": "sustained by",
+        "object": "histotroph"
+      },
+      "verdict": "unscored",
+      "score": null,
+      "reason": "LLM parse failed"
+    },
+    {
+      "triple": {
+        "subject": "mature females",
+        "relation": "has",
+        "object": "single functional ovary"
+      },
+      "verdict": "unscored",
+      "score": null,
+      "reason": "LLM parse failed"
+    },
+    {
+      "triple": {
+        "subject": "mature females",
+        "relation": "has",
+        "object": "single uterus"
+      },
+      "verdict": "unscored",
+      "score": null,
+      "reason": "LLM parse failed"
+    },
+    {
+      "triple": {
+        "subject": "litter",
+        "relation": "grows to",
+        "object": "one or two"
+      },
+      "verdict": "unscored",
+      "score": null,
+      "reason": "LLM parse failed"
+    },
+    {
+      "triple": {
+        "subject": "newborns",
+        "relation": "grows to",
+        "object": "12-14 cm"
+      },
+      "verdict": "unscored",
+      "score": null,
+      "reason": "LLM parse failed"
+    },
+    {
+      "triple": {
+        "subject": "males",
+        "relation": "reach sexual maturity at",
+        "object": "20-21 cm"
+      },
+      "verdict": "correct",
+      "score": 1.0,
+      "reason": "supported by article"
+    },
+    {
+      "triple": {
+        "subject": "mature females",
+        "relation": "reach sexual maturity at",
+        "object": "18-19 cm"
+      },
+      "verdict": "incorrect",
+      "score": 0.0,
+      "reason": "not mentioned in article"
+    },
+    {
+      "triple": {
+        "subject": "males",
+        "relation": "maximum lifespan",
+        "object": "9 years"
+      },
+      "verdict": "incorrect",
+      "score": 0.0,
+      "reason": "not mentioned in article"
+    },
+    {
+      "triple": {
+        "subject": "mature females",
+        "relation": "maximum lifespan",
+        "object": "13 years"
+      },
+      "verdict": "incorrect",
+      "score": 0.0,
+      "reason": "not mentioned in article"
+    }
+  ]
+}
