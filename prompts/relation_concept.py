@@ -1,5 +1,3 @@
-# prompts/relation_concept.py
-
 SYSTEM_PROMPT = """You are a knowledge graph relation conceptualizer. For each relation, generate at least 3 abstract concept phrases that represent its semantic category at varying levels of abstraction.
 
 Rules:

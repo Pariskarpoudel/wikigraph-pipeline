@@ -45,12 +45,18 @@ def parse_llm_json(raw_text: str, expected_type: str = "auto") -> Any:
     # Step 3: Find JSON block inside surrounding prose
     match = re.search(r'(\{[\s\S]*\}|\[[\s\S]*\])', text, re.DOTALL)
     if match:
+        # Step 3a: Direct parse of extracted block
         try:
             return _check_type(json.loads(match.group(1)), expected_type)
         except json.JSONDecodeError:
             pass
+        # Step 3b: Fix trailing commas on extracted block and retry
+        try:
+            return _check_type(json.loads(_remove_trailing_commas(match.group(1))), expected_type)
+        except json.JSONDecodeError:
+            pass
 
-    # Step 4: Fix trailing commas and retry
+    # Step 4: Fix trailing commas on full text and retry
     fixed = _remove_trailing_commas(text)
     try:
         return _check_type(json.loads(fixed), expected_type)

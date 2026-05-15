@@ -1,10 +1,12 @@
-# pipeline/chunker.py
 import re
 import logging
 from typing import List, Dict
-import config
 
 logger = logging.getLogger(__name__)
+
+TARGET_TOKENS = 400
+MAX_TOKENS    = 550
+MIN_TOKENS    = 50
 
 
 def _token_count(text: str) -> int:
@@ -18,47 +20,11 @@ def _clean(text: str) -> str:
     return text.strip()
 
 
-def _parse_heading(line: str):
-    """
-    Parse WikiText-103 spaced heading format.
-    '= Title ='           → level 1, 'Title'
-    '= = Section = ='     → level 2, 'Section'
-    '= = = Sub = = ='     → level 3, 'Sub'
-    Returns (level, name) or (None, None) if not a heading.
-    """
-    tokens = line.strip().split()
-    if not tokens or tokens[0] != '=':
-        return None, None
-
-    level = 0
-    for t in tokens:
-        if t == '=':
-            level += 1
-        else:
-            break
-
-    trailing = 0
-    for t in reversed(tokens):
-        if t == '=':
-            trailing += 1
-        else:
-            break
-
-    if level != trailing or level == 0:
-        return None, None
-
-    name_tokens = tokens[level: len(tokens) - trailing]
-    if not name_tokens:
-        return None, None
-
-    return level, " ".join(name_tokens)
-
-
-def _flush(buffer, title, section_path, chunk_index, chunks, min_tokens):
+def _flush(buffer, title, section_path, chunk_index, chunks):
     if not buffer:
         return chunk_index
     text = _clean(" ".join(buffer))
-    if _token_count(text) >= min_tokens:
+    if _token_count(text) >= MIN_TOKENS:
         chunks.append({
             "article_title": title,
             "section_path":  section_path,
@@ -70,21 +36,47 @@ def _flush(buffer, title, section_path, chunk_index, chunks, min_tokens):
     return chunk_index
 
 
-def _chunk_raw_text(
-    raw: str,
-    max_tokens: int,
-    min_tokens: int,
-    target_tokens: int,
-) -> (List[Dict], str):
+def _parse_heading(line: str):
     """
-    Core chunking logic — paragraph-based, shared by both WikiGraphs and essays.
-
-    For WikiGraphs: headings are parsed and tracked as metadata (section_path)
-                    but are NOT used as flush triggers anymore.
-    For Essays:     no headings present, section_path stays as 'Body' throughout.
-
-    Flush happens only when accumulated tokens exceed max_tokens.
+    Parse WikiText-103 spaced heading format.
+    '= Title ='           → level 1, 'Title'
+    '= = Section = ='     → level 2, 'Section'
+    '= = = Sub = = ='     → level 3, 'Sub'
+    Returns (level, name) or (None, None) if not a heading.
     """
+    tokens = line.strip().split()
+    if not tokens or tokens[0] != '=':
+        return None, None
+    # Count leading '=' tokens
+    level = 0
+    for t in tokens:
+        if t == '=':
+            level += 1
+        else:
+            break
+    # Must also end with same number of '='
+    trailing = 0
+    for t in reversed(tokens):
+        if t == '=':
+            trailing += 1
+        else:
+            break
+    if level != trailing or level == 0:
+        return None, None
+    # Name is everything between leading and trailing '='
+    name_tokens = tokens[level: len(tokens) - trailing]
+    if not name_tokens:
+        return None, None
+    return level, " ".join(name_tokens)
+
+
+def chunk_article(filepath: str) -> List[Dict]:
+    """
+    Chunk a WikiText-103 article from a .txt file.
+    Use for quick single-article testing.
+    """
+    with open(filepath, "r", encoding="utf-8") as f:
+        raw = f.read()
     lines         = raw.splitlines()
     title         = ""
     header_stack  = []
@@ -100,11 +92,10 @@ def _chunk_raw_text(
         line = line.strip()
         if not line:
             continue
-
         level, name = _parse_heading(line)
-
         if level is not None:
-            # ── Headings: update metadata only, do NOT flush ──────────────
+            chunk_index = _flush(buffer, title, get_path(), chunk_index, chunks)
+            buffer, buffer_tokens = [], 0
             if level == 1:
                 title = name
                 header_stack = []
@@ -113,97 +104,176 @@ def _chunk_raw_text(
                     header_stack.pop()
                 header_stack.append((level, name))
             continue
-
+        # Regular text
         para_tokens = _token_count(line)
-
-        # Flush if adding this paragraph would exceed max_tokens
-        if buffer_tokens + para_tokens > max_tokens:
-            chunk_index = _flush(buffer, title, get_path(), chunk_index, chunks, min_tokens)
+        if buffer_tokens + para_tokens > MAX_TOKENS:
+            chunk_index = _flush(buffer, title, get_path(), chunk_index, chunks)
             buffer, buffer_tokens = [], 0
-
-        # Paragraph itself exceeds max_tokens — split by sentence
-        if para_tokens > max_tokens:
+        # Single paragraph too long → split at sentence level
+        if para_tokens > MAX_TOKENS:
             sentences = re.split(r'(?<=[.!?])\s+', line)
             sub_buffer, sub_tokens = [], 0
             for sent in sentences:
                 st = _token_count(sent)
-                if sub_tokens + st > max_tokens:
-                    chunk_index = _flush(sub_buffer, title, get_path(), chunk_index, chunks, min_tokens)
+                if sub_tokens + st > MAX_TOKENS:
+                    chunk_index = _flush(sub_buffer, title, get_path(), chunk_index, chunks)
                     sub_buffer, sub_tokens = [], 0
                 sub_buffer.append(sent)
                 sub_tokens += st
-            chunk_index = _flush(sub_buffer, title, get_path(), chunk_index, chunks, min_tokens)
+            chunk_index = _flush(sub_buffer, title, get_path(), chunk_index, chunks)
             continue
-
         buffer.append(line)
         buffer_tokens += para_tokens
-
-    _flush(buffer, title, get_path(), chunk_index, chunks, min_tokens)
-    return chunks, title
-
-
-def chunk_article(filepath: str) -> List[Dict]:
-    """
-    WikiGraphs entry point — reads from .txt file.
-    Uses WIKI chunk config.
-    """
-    with open(filepath, "r", encoding="utf-8") as f:
-        raw = f.read()
-
-    chunks, title = _chunk_raw_text(
-        raw,
-        max_tokens=config.WIKI_CHUNK_MAX_TOKENS,
-        min_tokens=config.WIKI_CHUNK_MIN_TOKENS,
-        target_tokens=config.WIKI_CHUNK_TARGET_TOKENS,
-    )
-    logger.info(f"[wiki] '{title}' → {len(chunks)} chunks")
+    _flush(buffer, title, get_path(), chunk_index, chunks)
+    logger.info(f"'{title}' → {len(chunks)} chunks")
     return chunks
 
 
-def chunk_article_from_text(text: str, fallback_title: str = "") -> List[Dict]:
+def chunk_wiki_record(record: dict) -> List[Dict]:
     """
-    WikiGraphs entry point — accepts raw text string directly.
-    Uses WIKI chunk config.
+    Chunk a WikiGraphs JSONL record.
+    Record keys: id, title, text.
     """
-    chunks, parsed_title = _chunk_raw_text(
-        text,
-        max_tokens=config.WIKI_CHUNK_MAX_TOKENS,
-        min_tokens=config.WIKI_CHUNK_MIN_TOKENS,
-        target_tokens=config.WIKI_CHUNK_TARGET_TOKENS,
-    )
+    title         = record["title"]
+    lines         = record["text"].splitlines()
+    header_stack  = []
+    chunks        = []
+    buffer        = []
+    buffer_tokens = 0
+    chunk_index   = 0
 
-    if not parsed_title and fallback_title:
-        for chunk in chunks:
-            chunk["article_title"] = fallback_title
-        parsed_title = fallback_title
+    def get_path():
+        return " / ".join(name for _, name in header_stack) or "Introduction"
 
-    logger.info(f"[wiki] '{parsed_title}' → {len(chunks)} chunks")
+    for line in lines:
+        line = line.strip()
+        if not line:
+            continue
+        level, name = _parse_heading(line)
+        if level is not None:
+            chunk_index = _flush(buffer, title, get_path(), chunk_index, chunks)
+            buffer, buffer_tokens = [], 0
+            if level == 1:
+                header_stack = []
+            else:
+                while header_stack and header_stack[-1][0] >= level:
+                    header_stack.pop()
+                header_stack.append((level, name))
+            continue
+        # Regular text
+        para_tokens = _token_count(line)
+        if buffer_tokens + para_tokens > MAX_TOKENS:
+            chunk_index = _flush(buffer, title, get_path(), chunk_index, chunks)
+            buffer, buffer_tokens = [], 0
+        # Single paragraph too long → split at sentence level
+        if para_tokens > MAX_TOKENS:
+            sentences = re.split(r'(?<=[.!?])\s+', line)
+            sub_buffer, sub_tokens = [], 0
+            for sent in sentences:
+                st = _token_count(sent)
+                if sub_tokens + st > MAX_TOKENS:
+                    chunk_index = _flush(sub_buffer, title, get_path(), chunk_index, chunks)
+                    sub_buffer, sub_tokens = [], 0
+                sub_buffer.append(sent)
+                sub_tokens += st
+            chunk_index = _flush(sub_buffer, title, get_path(), chunk_index, chunks)
+            continue
+        buffer.append(line)
+        buffer_tokens += para_tokens
+    _flush(buffer, title, get_path(), chunk_index, chunks)
+    logger.info(f"'{title}' → {len(chunks)} chunks")
     return chunks
 
 
-def chunk_essay_from_text(text: str, fallback_title: str = "") -> List[Dict]:
-    """
-    Essay (mine1) entry point — accepts raw text string directly.
-    Uses ESSAY chunk config.
 
-    Strips backtick wrappers that essays in the dataset sometimes have.
-    section_path will be 'Body' throughout since essays have no headings.
-    """
-    # Strip backtick wrappers e.g. ```essay content```
-    text = re.sub(r'^`{3,}|`{3,}$', '', text.strip()).strip()
+#strategy3
+def chunk_essay(record: dict) -> List[Dict]:
+    title   = record["essay_title"]
+    content = record["essay_content"].strip()
 
-    chunks, parsed_title = _chunk_raw_text(
-        text,
-        max_tokens=config.ESSAY_CHUNK_MAX_TOKENS,
-        min_tokens=config.ESSAY_CHUNK_MIN_TOKENS,
-        target_tokens=config.ESSAY_CHUNK_TARGET_TOKENS,
-    )
+    raw_paragraphs = [p.strip() for p in content.split("\n\n") if p.strip()]
 
-    # Essays have no level-1 heading so always use fallback_title
-    if fallback_title:
-        for chunk in chunks:
-            chunk["article_title"] = fallback_title
+    chunks = []
+    for i, para in enumerate(raw_paragraphs):
+        chunks.append({
+            "article_title": title,
+            "section_path":  "paragraph",
+            "chunk_text":    para,
+            "chunk_index":   i,
+            "token_approx":  _token_count(para),
+        })
 
-    parsed_title = fallback_title or parsed_title
-    logger.info(f"[essay] '{parsed_title}' → {len(chunks)} chunks")
+    logger.info(f"'{title}' → {len(chunks)} chunks (one-per-paragraph mode)")
     return chunks
+
+
+
+# strategy2
+# def chunk_essay(record: dict) -> List[Dict]:
+#     """
+#     MINE-1 JSONL record → single chunk (no splitting).
+#     Each essay is short enough (~592 words) to process whole.
+#     Record keys: essay_title, essay_content.
+#     """
+#     title   = record["essay_title"]
+#     content = _clean(record["essay_content"])
+
+#     chunks = [{
+#         "article_title": title,
+#         "section_path":  "full_article",
+#         "chunk_text":    content,
+#         "chunk_index":   0,
+#         "token_approx":  _token_count(content),
+#     }]
+
+#     logger.info(f"'{title}' → 1 chunk ({_token_count(content)} tokens) [no-split mode]")
+#     return chunks
+
+
+
+
+
+
+
+
+# strategy1
+# def chunk_essay(record: dict) -> List[Dict]:
+#     """
+#     Chunk a MINE-1 JSONL record.
+#     Record keys: essay_title, essay_content.
+#     Plain prose — no heading parsing. section_path is always 'Introduction'.
+#     """
+#     title         = record["essay_title"]
+#     lines         = record["essay_content"].splitlines()
+#     chunks        = []
+#     buffer        = []
+#     buffer_tokens = 0
+#     chunk_index   = 0
+#     section_path  = "Introduction"
+
+#     for line in lines:
+#         line = line.strip()
+#         if not line:
+#             continue
+#         para_tokens = _token_count(line)
+#         if buffer_tokens + para_tokens > MAX_TOKENS:
+#             chunk_index = _flush(buffer, title, section_path, chunk_index, chunks)
+#             buffer, buffer_tokens = [], 0
+#         # Single paragraph too long → split at sentence level
+#         if para_tokens > MAX_TOKENS:
+#             sentences = re.split(r'(?<=[.!?])\s+', line)
+#             sub_buffer, sub_tokens = [], 0
+#             for sent in sentences:
+#                 st = _token_count(sent)
+#                 if sub_tokens + st > MAX_TOKENS:
+#                     chunk_index = _flush(sub_buffer, title, section_path, chunk_index, chunks)
+#                     sub_buffer, sub_tokens = [], 0
+#                 sub_buffer.append(sent)
+#                 sub_tokens += st
+#             chunk_index = _flush(sub_buffer, title, section_path, chunk_index, chunks)
+#             continue
+#         buffer.append(line)
+#         buffer_tokens += para_tokens
+#     _flush(buffer, title, section_path, chunk_index, chunks)
+#     logger.info(f"'{title}' → {len(chunks)} chunks")
+#     return chunks

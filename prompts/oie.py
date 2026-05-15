@@ -9,7 +9,6 @@ SYSTEM_PROMPT = """You are an expert knowledge graph constructor. Your task is t
 
 ### Constraints
 - Extract all MEANINGFUL and RELEVANT triples — skip trivial, vague, or redundant facts.
-- Prefer quality over quantity — do not over-extract. A dense chunk may yield 15-20 triples, a sparse chunk 5-8.
 - All keys must exist and all values must be non-empty strings.
 - Subject and object must be noun phrases — never pronouns, generic words, scores, counts, or descriptive phrases.
 - Never use compound subjects or objects like "X and Y" — split into separate triples.
@@ -29,11 +28,11 @@ Output:[
         {{"subject": "Marie Curie", "relation": "worked in", "object": "Paris"}}
     ]
 
-Text: "The iPhone is a line of smartphones produced by Apple Inc. that runs the iOS operating system. The first iPhone was announced by Steve Jobs on January 9, 2007 at the Macworld conference in San Francisco and released in the United States on June 29, 2007. It introduced a multi-touch interface, virtual keyboard, and integration of internet services including Safari web browser, email, and the iPod music player in a single device. The original iPhone popularized the modern smartphone era and significantly influenced subsequent mobile phone designs. Apple has released new iPhone models annually, each bringing hardware and software advancements. The iPhone 3G (2008) added 3G connectivity and launched the App Store. The iPhone 4 (2010) featured a Retina display and front-facing camera. The iPhone 5s (2013) introduced Touch ID fingerprint sensor. The iPhone X (2017) removed the home button, added Face ID facial recognition, and introduced an edge-to-edge OLED screen. More recent models such as the iPhone 12 series (2020) brought 5G support, while the iPhone 14 Pro (2022) added the Dynamic Island interface and always-on display. As of 2024, cumulative iPhone sales exceed 2.3 billion units worldwide, making it the best-selling smartphone line in history."
+Text: "The iPhone is a line of smartphones produced by Apple Inc. that runs on the iOS operating system. The first iPhone was announced by Steve Jobs on January 9, 2007 at the Macworld conference in San Francisco and released in the United States on June 29, 2007. It introduced a multi-touch interface, virtual keyboard, and integration of internet services including Safari web browser, email, and the iPod music player in a single device. The original iPhone popularized the modern smartphone era and significantly influenced subsequent mobile phone designs. Apple has released new iPhone models annually, each bringing hardware and software advancements. The iPhone 3G (2008) added 3G connectivity and launched the App Store. The iPhone 4 (2010) featured a Retina display and front-facing camera. The iPhone 5s (2013) introduced Touch ID fingerprint sensor. The iPhone X (2017) removed the home button, added Face ID facial recognition, and introduced an edge-to-edge OLED screen. More recent models such as the iPhone 12 series (2020) brought 5G support, while the iPhone 14 Pro (2022) added the Dynamic Island interface and always-on display. As of 2024, cumulative iPhone sales exceed 2.3 billion units worldwide, making it the best-selling smartphone line in history."
 Output:[
         {{"subject": "iPhone", "relation": "is a", "object": "line of smartphones"}},
         {{"subject": "iPhone", "relation": "produced by", "object": "Apple Inc."}},
-        {{"subject": "iPhone", "relation": "runs", "object": "iOS"}},
+        {{"subject": "iPhone", "relation": "runs on", "object": "iOS"}},
         {{"subject": "first iPhone", "relation": "announced by", "object": "Steve Jobs"}},
         {{"subject": "first iPhone", "relation": "announced on", "object": "January 9, 2007"}},
         {{"subject": "first iPhone", "relation": "announced at", "object": "Macworld conference"}},
@@ -46,8 +45,8 @@ Output:[
         {{"subject": "iPhone 4", "relation": "introduced", "object": "Retina display"}},
         {{"subject": "iPhone X", "relation": "released in", "object": "2017"}},
         {{"subject": "iPhone X", "relation": "introduced", "object": "Face ID"}},
-        {{"subject": "iPhone", "relation": "total units sold", "object": "exceeding 2.3 billion"}},
-        {{"subject": "iPhone", "relation": "is", "object": "best-selling smartphone line"}}
+        {{"subject": "iPhone", "relation": "has cumulative sales of", "object": "over 2.3 billion units worldwide"}},
+        {{"subject": "iPhone", "relation": "is", "object": "the best-selling smartphone line in history"}}
     ]
 
 

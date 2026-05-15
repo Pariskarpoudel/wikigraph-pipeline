@@ -1,8 +1,6 @@
-# pipeline/relation_canonicalizer.py
 import logging
 from typing import List, Dict, Tuple
 import config
-
 from utils.embedder import embed, cosine_similarity
 from utils.llm import llm_call
 from utils.parser import parse_llm_json
@@ -52,24 +50,23 @@ def _normalize_singletons(
 
         user_prompt = f"""Article: {article_title}
 
-Normalize each relation name to a concise 1–3 word verb phrase.
-- Keep the meaning exactly — only shorten the phrasing.
-- If already 1–3 words and clear — return it exactly as is.
-- Output every relation — do not skip any.
+Review each relation name below:
+- If it is lengthy, verbose, or imprecise — normalize it to a shorter cleaner form.
+- Never change the meaning, only shorten the phrasing if needed.
+- Output every relation in the list — do not skip any.
 
 Relations to review:
 {relations_block}
 
 Output format:
 {{
-  "original_relation": "normalized_1_to_3_word_form",
+  "original_relation": "normalized_or_same_relation",
   ...
 }}"""
 
         raw = llm_call(
-            system_prompt="You are a knowledge graph relation normalizer. Normalize relation names to concise 1–3 word verb phrases. Output JSON only. No explanation outside JSON.",
-            user_prompt=user_prompt,
-            model=config.RELATION_SINGLETON_NORMALIZATION_MODEL
+            system_prompt="You are a knowledge graph relation normalizer. Output JSON only. No explanation outside JSON.",
+            user_prompt=user_prompt
         )
 
         result = parse_llm_json(raw, expected_type="dict")
@@ -168,8 +165,7 @@ def canonicalize_relations(
 
         raw = llm_call(
             system_prompt=SYSTEM_PROMPT,
-            user_prompt=user_prompt,
-            model=config.RELATION_CANONICALIZATION_MODEL
+            user_prompt=user_prompt
         )
 
         result = parse_llm_json(raw, expected_type="dict")

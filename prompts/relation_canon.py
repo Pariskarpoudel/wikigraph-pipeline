@@ -43,7 +43,7 @@ Output format:
 If there are matches:
 {{
   "matches": ["<matched_relation>", "<matched_relation>"],
-  "canonical_name": "<the most concise/preferred relation name among target and all matches>",
+  "canonical_name": "<the most concise, representative relation name among target and all matches>",
   "reasoning": "<one line>"
 }}
 If no candidates match:

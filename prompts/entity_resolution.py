@@ -1,5 +1,3 @@
-# prompts/entity_resolution.py
-
 SYSTEM_PROMPT = """You are a knowledge graph entity resolver.
 Given a target entity with its context triples and candidate entities, identify which candidates refer to the same real-world entity as the target.
 Output JSON only. No explanation outside JSON.
@@ -42,7 +40,7 @@ Output format:
 If there are matches:
 {{
   "matches": ["<matched_entity>", "<matched_entity>"],
-  "canonical_name": "<the most complete/preferred entity name among all matches including target>",
+  "canonical_name": "<the best representative entity name among all matches including target>",
   "reasoning": "<one line>"
 }}
 If no candidates match, output:
