@@ -1,13 +1,12 @@
 import logging
 from typing import List, Dict
-import config
 from utils.llm import llm_call
 from utils.parser import parse_llm_json
 from prompts.relation_definition import SYSTEM_PROMPT, build_user_prompt
 
 logger = logging.getLogger(__name__)
 
-BATCH_SIZE = config.RELATION_DEFINITION_BATCH_SIZE
+BATCH_SIZE = 10   # relations per LLM call — as per pipeline doc
 
 
 def _collect_unique_relations(triples: List[Dict]) -> Dict[str, Dict]:
@@ -58,8 +57,7 @@ def define_relations(
 
         raw = llm_call(
             system_prompt=SYSTEM_PROMPT,
-            user_prompt=user_prompt,
-            model=config.RELATION_DEFINITION_MODEL
+            user_prompt=user_prompt
         )
 
         result = parse_llm_json(raw, expected_type="dict")

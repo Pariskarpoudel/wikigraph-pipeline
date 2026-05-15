@@ -1,5 +1,3 @@
-# prompts/relation_definition.py
-
 SYSTEM_PROMPT = """You are a knowledge graph relation definer. For each unique relation in the given triples, write a concise general definition.
 Definitions must be general enough to apply to other entities beyond those listed.
 Pay attention to direction — subject → relation → object.

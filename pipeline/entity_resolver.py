@@ -1,7 +1,6 @@
 import logging
 from typing import List, Dict, Tuple
 import config
-
 from utils.embedder import embed, cosine_similarity
 from utils.llm import llm_call
 from utils.parser import parse_llm_json
@@ -109,8 +108,7 @@ def resolve_entities(
 
         raw = llm_call(
             system_prompt=SYSTEM_PROMPT,
-            user_prompt=user_prompt,
-            model=config.ENTITY_RESOLUTION_MODEL
+            user_prompt=user_prompt
         )
 
         result = parse_llm_json(raw, expected_type="dict")

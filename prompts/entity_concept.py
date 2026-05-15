@@ -1,5 +1,3 @@
-# prompts/entity_concept.py
-
 SYSTEM_PROMPT = """You are a knowledge graph entity conceptualizer. For each entity, generate at least 3 abstract concept phrases that represent its type or category at varying levels of abstraction.
 
 Rules:
